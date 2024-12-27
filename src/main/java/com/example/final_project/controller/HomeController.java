@@ -6,6 +6,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
     @GetMapping("/")
     public String home() {
-        return "index.html"; // 對應 templates/index.html
+        return "Index"; // 與 templates 下的文件名對應
+    }
+
+    @GetMapping("/Index.html")
+    public String home2() {
+        return "Index"; // 與 templates 下的文件名對應
+    }
+
+    @GetMapping("/Info.html")
+    public String info() {
+        return "Info"; // 與 templates 下的文件名對應
+    }
+
+    @GetMapping("/Cart.html")
+    public String cart() {
+        return "Cart"; // 與 templates 下的文件名對應
+    }
+
+    @GetMapping("/List.html")
+    public String list() {
+        return "List"; // 與 templates 下的文件名對應
     }
 }

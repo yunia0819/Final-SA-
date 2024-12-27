@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script th:src="@{/confirmRent.js}"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家具租借平台</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <style>
+        .cart-cancel button {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+<header class="header">
+    <div class="logo"><a href="Index.html">家具出租網</a></div>
+    <input type="text" class="search-bar" placeholder="Search">
+    <div class="cart">
+        <a href="Cart.html"><img th:src="@{/material/shopping-cart.png}" alt="cart"></a>
+    </div>
+</header>
+
+<div class="cart-content">
+    <div class="cart-item">
+        <div class="cart-image">
+            商品
+        </div>
+        <div class="cart-name"></div>
+        <div class="list-date">
+            租借期間
+        </div>
+        <div class="list-price-ex">結帳金額</div>
+        <div class="cart-quantity">數量</div>
+        <div class="cart-cancel">
+
+        </div>
+    </div>
+</div>
+
+<div class="cart-content" id="bye">
+    <div class="cart-item">
+        <div class="cart-image">
+            <img src="https://www.ikea.com.tw/dairyfarm/tw/images/496/0949689_PE799948_S4.jpg" alt="Product Image">
+        </div>
+        <div class="cart-name">LYCKSELE LÖVÅS 單人沙發床</div>
+        <div class="list-date">
+            2024-12-15 至 2025-06-15
+        </div>
+        <div class="list-price">$3250</div>
+        <div class="cart-cancel">
+            <button>取消</button>
+        </div>
+
+        <div class="cart-item">
+            <div class="cart-image">
+                <img src="https://www.ikea.com.tw/dairyfarm/tw/images/518/0951870_PE801410_S4.webp" alt="Product Image">
+            </div>
+            <div class="cart-name">VIMLE 雙人座沙發</div>
+            <div class="list-date">
+                2024-12-15 至 2025-06-15
+            </div>
+            <div class="list-price">$5000</div>
+            <div class="cart-cancel">
+                <button>取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- 總金額與買單按鈕 -->
+    <div class="list-summary">
+        <div class="summary-right">
+        <span class="total-amount">
+          總金額：
+          <span class="amount">$<span id="total-price">300</span></span>
+        </span>
+            <button class="checkout-button">確定租借</button>
+        </div>
+    </div>
+
+<!-- 模態窗口 -->
+<div id="rent-modal" class="rent-modal hidden">
+    <div class="rent-modal-content">
+        <div class="rent-modal-header">
+            <h2>租借完成</h2>
+        </div>
+        <div class="rent-modal-body">
+            <p>訂單金額：$<span id="rent-modal-total-price"></span></p>
+            <p>租借期間：2024-12-15 至 2025-06-15</p>
+        </div>
+        <div class="rent-modal-footer">
+            <button id="rent-modal-close-button" class="rent-close-button">完成</button>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const prices = document.querySelectorAll('.list-price'); // 抓取所有商品價格
+        const totalPriceElement = document.getElementById('total-price');
+
+        let total = 0;
+
+        // 計算總金額
+        prices.forEach(price => {
+            total += parseFloat(price.textContent.replace('$', ''));
+        });
+
+        // 更新總金額
+        totalPriceElement.textContent = total.toFixed(0);
+    });
+</script>
+
+</html>

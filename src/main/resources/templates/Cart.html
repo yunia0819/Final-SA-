@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<script th:src="@{/readCart.js}" defer></script>
+<script th:src="@{/cartDate.js}" defer></script>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家具租借平台</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo"><a href="Index.html">家具出租網</a></div>
+    <input type="text" class="search-bar" placeholder="Search">
+    <div class="cart">
+      <a href="Cart.html"><img th:src="@{/material/shopping-cart.png}" alt="cart"></a>
+    </div>
+  </header>
+
+  <div class="cart-content">
+    <div class="cart-item">
+      <div class="cart-image">
+        商品
+      </div>
+      <div class="cart-name"></div>
+      <div class="cart-price">價格</div>
+      <div class="cart-quantity">數量</div>
+      <div class="cart-cancel">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-content" id="cart-insert">
+    <div class="cart-item">
+      <div class="cart-image">
+        <img src="https://www.ikea.com.tw/dairyfarm/tw/images/496/0949689_PE799948_S4.jpg" alt="Product Image">
+      </div>
+      <div class="cart-name">LYCKSELE LÖVÅS 單人沙發床</div>
+      <div class="cart-price">$25 / day</div>
+      <div class="cart-quantity">1</div>
+      <div class="cart-cancel">
+        <button>取消</button>
+      </div>
+    </div>
+
+    <div class="cart-item">
+      <div class="cart-image">
+        <img src="https://www.ikea.com.tw/dairyfarm/tw/images/518/0951870_PE801410_S4.webp" alt="Product Image">
+      </div>
+      <div class="cart-name">VIMLE 雙人座沙發</div>
+      <div class="cart-price">$50 / day</div>
+      <div class="cart-quantity">1</div>
+      <div class="cart-cancel">
+        <button>取消</button>
+      </div>
+    </div>
+  </div>
+    <div class="cart-footer">
+      <button class="check-button" id="open-modal">確定租借　　</button>
+    </div>
+
+  <!-- 日期選擇的 Modal 彈出視窗 -->
+  <div class="modal" id="date-modal">
+    <div class="modal-content">
+      <!-- 關閉按鈕 -->
+      <span class="close-button" id="close-modal">&times;</span>
+      <!-- 日期選擇器區塊 -->
+      <div class="calendar-section">
+        <h3>租借日期選擇</h3>
+        <label for="start-date">開始日期:</label>
+        <input type="date" id="start-date" placeholder="YYYY/MM/DD" /><br>
+        <label for="end-date">結束日期:</label>
+        <input type="date" id="end-date" placeholder="YYYY/MM/DD" />
+      </div>
+      <!-- 日期資訊與確認/取消按鈕 -->
+      <div class="date-info">
+        <p id="selected-date">尚未選擇</p>
+        <!-- <a href="List.html"> -->
+          <button id="confirm-date">確認</button>
+        <!-- </a> -->
+        <button id="cancel-date">取消</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

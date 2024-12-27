@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script th:src="@{/showCart.js}" defer></script>
+<script th:src="@{/readInfo.js}" defer></script>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家具租借平台</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo"><a href="Index.html">家具出租網</a></div>
+    <input type="text" class="search-bar" placeholder="Search">
+    <div class="cart">
+      <a href="Cart.html">
+        <img th:src="@{/material/shopping-cart.png}" alt="cart">
+      </a>
+        <div class="cart-popup" id="cart-container" style="display: none;">
+          <ul class="cart-items"></ul>
+        </div>
+    </div>
+  </header>
+  <div class="main-content">
+    <!-- <aside class="sidebar">
+      <h3>Category</h3>
+      <ul>
+        <li class="category" id="c1">沙發 / 沙發床 / 扶手椅</li>
+        <li class="category" id="c2">電腦桌 / 書桌 / 工作桌</li>
+        <li class="category" id="c3">床架及床邊收納</li>
+        <li class="category" id="c4">其他</li>
+      </ul>
+    </aside> -->
+    <main class="furniture-section">
+      <div class="furniture-header">
+        <div class="furniture-name">LYCKSELE LÖVÅS 單人沙發床</div>
+      </div>
+
+      <div class="furniture-content">
+        <div class="furniture-picture-section">
+          <div class="furniture-picture" id="main-picture">
+            <img src="https://www.ikea.com.tw/dairyfarm/tw/images/496/0949689_PE799948_S4.jpg" alt="Picture"
+              id="mainImage">
+          </div>
+          <div class="thumbnail-section">
+            <div class="thumbnail" data-image="https://www.ikea.com.tw/dairyfarm/tw/images/496/0949689_PE799948_S4.jpg">
+              <img src="https://www.ikea.com.tw/dairyfarm/tw/images/496/0949689_PE799948_S4.jpg" alt="">
+            </div>
+            <div class="thumbnail"
+              data-image="https://www.ikea.com.tw/dairyfarm/tw/images/518/0951870_PE801410_S4.webp">
+              <img src="https://www.ikea.com.tw/dairyfarm/tw/images/518/0951870_PE801410_S4.webp" alt="">
+            </div>
+            <div class="thumbnail"
+              data-image="https://www.ikea.com.tw/dairyfarm/tw/images/715/0571500_PE666933_S4.webp">
+              <img src="https://www.ikea.com.tw/dairyfarm/tw/images/715/0571500_PE666933_S4.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="furniture-info-section">
+          <div class="furniture-PR">
+            <div class="furniture-price">$25 / day</div>
+            <div class="furniture-rate">★ 4.7</div>
+          </div>
+          <div class="furniture-info">
+            <h3>家具描述</h3>
+            <p>使用半年後閒置，功能正常</p>
+          </div>
+          <div class="furniture-add-to-cart" id="addToCart">加入購物車</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+<script>
+  document.querySelectorAll(".thumbnail").forEach((thumbnail) => {
+    thumbnail.addEventListener("click", (event) => {
+      const mainPicture = document.getElementById("main-picture");
+      const imageUrl = thumbnail.getAttribute("data-image");
+      mainImage.src = imageUrl; // 更換圖片內容
+    });
+  });
+</script>
+
+</html>

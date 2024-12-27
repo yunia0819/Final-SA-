@@ -1,0 +1,688 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FAF3E0;
+  margin: 20px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 18px;
+}
+
+.logo {
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+  color: #000000;
+}
+
+.search-bar {
+  flex: 4;
+  margin: 0 20px;
+  padding: 5px 10px;
+}
+
+.cart {
+  flex: 1;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cart img {
+  height: 25px;
+  object-fit: cover;
+  /* 圖片裁剪以填滿容器 */
+}
+
+.main-content {
+  display: flex;
+  margin: 20px;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 10px;
+  background-color: #FAF3E0;
+  border-right: 1px solid #ddd;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  background-color: #FFFFFF;
+  margin: 10px;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+}
+
+.sidebar li:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+/* #FAF3E0 #6B8E23 #FFD700 */
+.products {
+  flex: 1;
+  padding: 20px;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: flex;
+  /* 啟用 Flexbox */
+  flex-wrap: wrap;
+  /* 超出範圍時自動換行 */
+  gap: 20px;
+  /* 卡片之間的間距 */
+  justify-content: space-between;
+  /* 卡片間距平均分配 */
+}
+
+.product-item {
+  /* width: 300px;  */
+  /* height: 200px;  */
+  flex: 0 1 calc(30% - 40px);
+  /* 每行顯示三個，減去間距 */
+  max-width: calc(30% - 40px);
+  /* 最大寬度，與 `flex` 對應 */
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  box-shadow: 2px 4px 12px #00000014;
+  overflow: hidden;
+  /* 超出範圍的部分隱藏 */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: all 0.3s ease-out;
+}
+
+.product-item:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.product-item img {
+  width: 100%;
+  height: 150;
+  object-fit: cover;
+  /* 圖片裁剪以填滿容器 */
+  border-radius: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:visited {
+  color: #000000;
+}
+
+.product-info {
+  padding: 10px;
+  text-align: start;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  margin: 5px 0;
+}
+
+.product-price {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+}
+
+.product-rate {
+  font-size: 12px;
+  color: #666666;
+  margin: 0;
+}
+
+/* 家具Info.html區域 */
+.furniture-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 18px;
+}
+
+/* Header 部分 */
+.furniture-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.furniture-name {
+  flex: 2;
+  text-align: start;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  margin: 0;
+}
+
+/* 內容部分 */
+.furniture-content {
+  display: flex;
+  gap: 20px;
+}
+
+.furniture-picture-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.furniture-picture {
+  /* height: 200px; */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.furniture-picture img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  /* 圖片裁剪以填滿容器 */
+  border-radius: 18px;
+}
+
+.thumbnail-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.thumbnail img {
+  height: 100%;
+  object-fit: cover;
+  /* 圖片裁剪以填滿容器 */
+  border-radius: 18px;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+  border-color: #666;
+}
+
+/* 資訊與價格區域 */
+.furniture-info-section {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.furniture-PR {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+    border-radius: 18px;
+}
+
+.furniture-price,
+.furniture-rate {
+  flex: 1;
+  text-align: center;
+}
+
+.furniture-info {
+  flex: 2;
+  height: 120px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.furniture-add-to-cart {
+  padding: 10px;
+  height: 40px;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  margin: 0;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.furniture-add-to-cart:hover {
+  background-color: #FAF3E0;
+  transition: background-color 0.2s ease;
+}
+
+/* 購物車Cart.html */
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f5f5f5;
+  border-radius: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cart-image {
+  flex: 2;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-image img {
+  height: 100px;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+.cart-name {
+  flex: 2;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.cart-price {
+  flex: 2;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+.cart-quantity {
+  flex: 2;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+.cart-cancel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.cart-cancel button {
+  background-color: #ff4d4f;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-cancel button:hover {
+  background-color: #d9363e;
+}
+
+/* Check 按鈕區塊 */
+.cart-footer {
+  padding: 10px 0;
+  margin: 40px;
+}
+
+.cart-popup {
+  position: absolute;
+  top: 50px;
+  right: 70px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  z-index: 10;
+  padding: 10px;
+}
+
+.cart-popup ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-popup li {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.cart-popup img {
+  flex: 1;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.cart-popup button {
+  flex: 1;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.check-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.check-button:hover {
+  background-color: #45a049;
+}
+
+/* Modal 彈出視窗背景 */
+.modal {
+  display: none;
+  /* 預設不顯示 */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal 內容區塊 */
+.modal-content {
+  background-color: #f9f9f9;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* 關閉按鈕 */
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: black;
+}
+
+/* 日期選擇區域樣式 */
+.calendar-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.calendar-section label {
+  display: inline-block;
+  margin: 10px;
+  font-weight: bold;
+}
+
+#start-date,
+#end-date {
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+  width: 45%;
+}
+
+#date-picker {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* 日期資訊與按鈕 */
+.date-info {
+  margin-top: 20px;
+}
+
+.date-info button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#confirm-date {
+  background-color: #4caf50;
+  color: white;
+}
+
+#cancel-date {
+  background-color: #f44336;
+  color: white;
+}
+
+#confirm-date:hover {
+  background-color: #45a049;
+}
+
+#cancel-date:hover {
+  background-color: #e53935;
+}
+
+/* List.html部分（延續購物車頁面） */
+
+.list-date {
+  flex: 2;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+.list-price, .list-price-ex {
+  flex: 1.5;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+/* 總金額與買單區塊 */
+.list-summary {
+  display: flex;
+  justify-content: flex-end; /* 將內容靠右排列 */
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: #f5f5f5;
+  border-radius: 18px;
+}
+
+.total-amount {
+  font-size: 18px;
+  margin-right: 20px;
+  color: #333;
+}
+
+.amount {
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.checkout-button {
+  background-color: #ff4d4f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+  background-color: #d9363e;
+}
+
+/* 模態窗口樣式 */
+.rent-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 隱藏模態窗口 */
+.hidden {
+  display: none;
+}
+
+.show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.rent-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.rent-modal-header h2 {
+  margin: 0;
+  color: #2ecc71; /* 綠色 */
+}
+
+.rent-modal-body p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.rent-modal-footer {
+  margin-top: 20px;
+}
+
+.rent-close-button {
+  padding: 10px 20px;
+  background-color: #e74c3c; /* 紅色 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.rent-close-button:hover {
+  background-color: #c0392b;
+}
+
+#rent-modal-total-price {
+  color: #ff442f;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script th:src="@{/readProduct.js}"></script>
+<script th:src="@{/showCart.js}" defer></script>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家具租借平台</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo"><a href="Index.html">家具出租網</a></div>
+    <input type="text" class="search-bar" placeholder="Search">
+    <div class="cart">
+      <a href="Cart.html">
+        <img th:src="@{/material/shopping-cart.png}" alt="cart">
+      </a>
+        <div class="cart-popup" id="cart-container" style="display: none;">
+          <ul class="cart-items"></ul>
+        </div>
+    </div>
+  </header>
+  <div class="main-content">
+    <aside class="sidebar">
+      <h3>種類</h3>
+      <ul>
+        <li class="category" id="c1">沙發床類</li>
+        <li class="category" id="c2">辦公桌類</li>
+        <li class="category" id="c3">床架及床邊收納</li>
+        <li class="category" id="c4">其他</li>
+      </ul>
+    </aside>
+    <section class="products">
+      <div class="products-header">
+        <h3>家具</h3>
+<!--        <button class="sort">Sort</button>-->
+      </div>
+      <div class="product-grid" id="product-grid">
+        <div class="product-item">
+          <a href="Info.html?id=1">
+            <img src="https://www.ikea.com.tw/dairyfarm/tw/images/496/0949689_PE799948_S4.jpg" alt="F1">
+            <div class="product-info">
+              <h3 class="product-name">LYCKSELE LÖVÅS 單人沙發床</h3>
+              <p class="product-price">$25 / day</p>
+              <p class="product-rate">★ 4.7</p>
+            </div>
+          </a>
+        </div>
+        <div class="product-item">
+          <a href="Info.html?id=2">
+            <img src="https://www.ikea.com.tw/dairyfarm/tw/images/518/0951870_PE801410_S4.webp" alt="F2">
+            <div class="product-info">
+              <h3 class="product-name">VIMLE 雙人座沙發</h3>
+              <p class="product-price">$50 / day</p>
+              <p class="product-rate">★ 4.9</p>
+            </div>
+          </a>
+        </div>
+        <div class="product-item">
+          <a href="Info.html">
+            <img src="https://www.ikea.com.tw/dairyfarm/tw/images/715/0571500_PE666933_S4.webp" alt="F3">
+            <div class="product-info">
+              <h3 class="product-name">POÄNG 扶手椅</h3>
+              <p class="product-price">$25 / day</p>
+              <p class="product-rate">★ 4.67</p>
+            </div>
+          </a>
+        </div>
+        <div class="product-item">
+          <a href="Info.html">
+            <img src="https://www.ikea.com.tw/dairyfarm/tw/images/776/0977658_PE813725_S4.webp" alt="F4">
+            <div class="product-info">
+              <h3 class="product-name">ALEX 書桌/工作桌</h3>
+              <p class="product-price">$16 / day</p>
+              <p class="product-rate">★ 4</p>
+            </div>
+          </a>
+        </div>
+        <div class="product-item">
+          <a href="Info.html">
+            <img src="https://www.ikea.com.tw/dairyfarm/tw/images/094/1209444_PE909221_S4.webp" alt="F5">
+            <div class="product-info">
+              <h3 class="product-name">MITTZON 升降式工作桌</h3>
+              <p class="product-price">$45 / day</p>
+              <p class="product-rate">★ 4.89</p>
+            </div>
+          </a>
+        </div>
+        <div class="product-item">
+          <a href="Info.html">
+            <img src="https://www.ikea.com.tw/dairyfarm/tw/images/023/0602358_PE680291_S4.webp" alt="F6">
+            <div class="product-info">
+              <h3 class="product-name">LANDSKRONA 三人座沙發</h3>
+              <p class="product-price">$51 / day</p>
+              <p class="product-rate">★ 4.68</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

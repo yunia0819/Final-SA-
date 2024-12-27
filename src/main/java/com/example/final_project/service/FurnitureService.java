@@ -2,71 +2,67 @@ package com.example.final_project.service;
 
 
 import com.example.final_project.entity.Furniture;
-import com.example.final_project.entity.dto.FurnitureDto;
-import com.example.final_project.repository.FurnitureRepoistory;
-import org.springframework.beans.BeanUtils;
+import com.example.final_project.entity.product; // 正確導入 Product 類
+import com.example.final_project.repository.FurnitureRepository;
+import com.example.final_project.repository.ProductRepository; // 導入 ProductRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.final_project.entity.dto.FurnitureDto;
+import java.util.Optional;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap; // 如果你使用 HashMap
-import java.util.ArrayList;
-
-
-import com.example.final_project.entity.Furniture;
+import java.util.stream.Collectors;
+import org.springframework.transaction.annotation.Transactional;
 
 
 
 @Service
-public class FurnitureService implements IUserService {
+public class FurnitureService {
 
     @Autowired
-    FurnitureRepoistory furnitureRepoistory;
+    private FurnitureRepository furnitureRepository;
 
-    @Override
-    public Furniture add(FurnitureDto furniture) {
+    @Autowired
+    private ProductRepository productRepository;
 
-        Furniture furniture1 = new Furniture();
-        BeanUtils.copyProperties(furniture,furniture1);
-
-        return furnitureRepoistory.save(furniture1);
-        //調用數據訪問
+    public List<FurnitureDto> getAllFurnitures() {
+        List<Furniture> furnitures = furnitureRepository.findAll();
+        return furnitures.stream()
+                .map(furniture -> new FurnitureDto(
+                        furniture.getName(),
+                        furniture.getImageLink(),
+                        furniture.getPrice(),
+                        furniture.getQuantity()))
+                .collect(Collectors.toList());
     }
-    @Override
-    public Iterable<Furniture> listAll() {
-        // 返回所有家具項目
-        return furnitureRepoistory.findAll();
-    }
-    /**
-     * 合并购物车中同名称的商品数量
-     *
-     * @return 合并后的商品列表
-     */
-    @Override
-    public List<Furniture> listCartItems() {
-        Iterable<Furniture> items = furnitureRepoistory.findAllByQuantityGreaterThan(0); // 查询所有购物车商品
-        Map<String, Furniture> mergedItems = new HashMap<>();
 
-        for (Furniture item : items) {
-            String name = item.getFurnitureName();
-            if (mergedItems.containsKey(name)) {
-                // 如果商品名称已存在，合并数量
-                Furniture existingItem = mergedItems.get(name);
-                existingItem.setQuantity(existingItem.getQuantity() + item.getQuantity());
-            } else {
-                // 不存在则新增到 Map 中
-                mergedItems.put(name, new Furniture(
-                        item.getFurnitureid(),
-                        item.getFurnitureName(),
-                        item.getImgurl(),
-                        item.getPrice(),
-                        item.getQuantity()
-                ));
-            }
+    public void addToCart(Long productId) {
+        // 從 productRepository 中查找商品
+        product product = productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException("商品未找到"));
+
+        // 檢查家具表是否已存在此商品
+        Optional<Furniture> existingFurniture = furnitureRepository.findByName(product.getName());
+
+        if (existingFurniture.isPresent()) {
+            // 如果存在，則數量加 1
+            Furniture furniture = existingFurniture.get();
+            furniture.setQuantity(furniture.getQuantity() + 1);
+            furnitureRepository.save(furniture);
+        } else {
+            // 如果不存在，則新增一個條目
+            Furniture newFurniture = new Furniture();
+            newFurniture.setName(product.getName());
+            newFurniture.setImageLink(product.getImageLink());
+            newFurniture.setPrice(product.getPricePerDay());
+            newFurniture.setRanks(product.getRanks());
+            newFurniture.setQuantity(1); // 設置初始數量
+            furnitureRepository.save(newFurniture);
         }
-
-        return new ArrayList<>(mergedItems.values());
     }
-
-
+    @Transactional
+    public void removeFurnitureByName(String furnitureName) {
+        // 找到符合名稱的家具並刪除
+        furnitureRepository.deleteByName(furnitureName);
+    }
 }
+
